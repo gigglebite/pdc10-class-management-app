@@ -3,7 +3,7 @@
 namespace App;
 use \PDO;
 
-class Classes
+class Student
 {
 	protected $id;
 	protected $name;
@@ -71,7 +71,7 @@ class Classes
 	public function save()
 	{
 		try {
-			$sql = "INSERT INTO classes SET name=:name, email=:email, code=:code, teacher_id=:teacher_id";
+			$sql = "INSERT INTO students SET name=:name, email=:email, phone=:phone, student_number=:student_number, address=:address, program=:program";
 			$statement = $this->connection->prepare($sql);
 
 			return $statement->execute([
@@ -91,7 +91,7 @@ class Classes
 	public function getById($id)
 	{
 		try {
-			$sql = 'SELECT * FROM classes WHERE id=:id';
+			$sql = 'SELECT * FROM students WHERE id=:id';
 			$statement = $this->connection->prepare($sql);
 			$statement->execute([
 				':id' => $id
@@ -101,29 +101,37 @@ class Classes
 
 			$this->id = $row['id'];
 			$this->name = $row['name'];
-			$this->name = $row['description'];
-			$this->name = $row['code'];
-			$this->name = $row['teacher_id'];
+			$this->email = $row['email'];
+			$this->phone = $row['phone'];
+			$this->student_number = $row['student_number'];
+			$this->address = $row['address'];
+			$this->program = $row['program'];
 
 		} catch (Exception $e) {
 			error_log($e->getMessage());
 		}
 	}
 
-	public function update($name, $description, $code, $teacher_id)
+	public function update($name, $email, $phone, $student_number, $address, $program)
 	{
 		try {
-			$sql = 'UPDATE todos SET name=?, description=?, code=?, teacher_id=? WHERE id=?';
+			$sql = 'UPDATE students SET name=?, email=?, phone=?, student_number=?, address=?, program=? WHERE id=?';
 			$statement = $this->connection->prepare($sql);
 			$statement->execute([
-				$task,
-				$is_completed,
+				$name,
+				$email,
+				$phone,
+				$student_number,
+				$address,
+				$program,
 				$this->getId()
 			]);
-		$this->name = $name;
-		$this->description = $description;
-        $this->code = $code;
-        $this->teacher_id = $teacher_id;
+			$this->name = $name;
+			$this->email = $email;
+			$this->phone = $phone;
+			$this->student_number = $student_number;
+			$this->address = $address;
+			$this->program = $program;
 		} catch (Exception $e) {
 			error_log($e->getMessage());
 		}
@@ -132,7 +140,7 @@ class Classes
 	public function delete()
 	{
 		try {
-			$sql = 'DELETE FROM classes WHERE id=?';
+			$sql = 'DELETE FROM students WHERE id=?';
 			$statement = $this->connection->prepare($sql);
 			$statement->execute([
 				$this->getId()
@@ -145,7 +153,7 @@ class Classes
 	public function getAll()
 	{
 		try {
-			$sql = 'SELECT * FROM classes';
+			$sql = 'SELECT * FROM students';
 			$data = $this->connection->query($sql)->fetchAll();
 			return $data;
 		} catch (Exception $e) {

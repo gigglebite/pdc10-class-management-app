@@ -97,7 +97,7 @@ class Classes
 	public function update($name, $description, $code, $teacher_id)
 	{
 		try {
-			$sql = 'UPDATE todos SET name=?, description=?, code=?, teacher_id=? WHERE id=?';
+			$sql = 'UPDATE classes SET name=?, description=?, code=?, teacher_id=? WHERE id=?';
 			$statement = $this->connection->prepare($sql);
 			$statement->execute([
 				$task,

@@ -4,7 +4,7 @@ use App\ClassRoster;
 
 $roster = new ClassRoster('');
 $roster->setConnection($connection);
-$rosters = $roster->getRoster($_GET['class_code']);
+$rosters = $roster->listClasses();
 ?>
 
 <!DOCTYPE html>
@@ -21,13 +21,6 @@ $rosters = $roster->getRoster($_GET['class_code']);
 </div>
 <div class="col">
 <div class="row">
-<div class="col">
-<a href="add.php"><button class="btn btn-primary">Add</button></a>
-</div>
-<div class="col">
-<form method="POST" action="delete.php">
-<button type="submit" name="delete" value="delete"  class="btn btn-danger">Delete</button>
-</div>
 </div>
 </div>
 </div>
@@ -37,10 +30,9 @@ $rosters = $roster->getRoster($_GET['class_code']);
         <thead>
 
             <tr>
-                <th>Check </th>
-                <th>ID </th>
-                <th>Class Code</th>
-                <th>Stud No.</th>
+                <th>Course Name </th>
+                <th>Assigned Teacher</th>
+                <th>Students Enrolled<th>
                 <th></th>
 
             </tr>
@@ -54,22 +46,17 @@ $rosters = $roster->getRoster($_GET['class_code']);
                 foreach ($rosters as $item) {
             ?>
             <tr>
-            <td>
-                <input type="checkbox" name="checkbox[]" value= "<?= $item['id'];?>" style="margin-left:auto; margin-right:auto;">
+                <td>
+                    <?php echo $item['course_name']; ?>
                 </td>
                 <td>
-                    <?php echo $item['id']; ?>
-                </td>
-
-                <td>
-                    <?php echo $item['class_code']; ?>
+                    <?php echo $item['teacher_name']; ?>
                 </td>
                 <td>
-                    <?php echo $item['student_number']; ?>
+                    <?php echo $item['students_enrolled']; ?>
                 </td>
                 <td>
-                <td>
-                <a href="edit.php?id=<?php echo $item['id'] ?>"class="btn btn-primary">Update</a>
+                <a href="index.php?class_code=<?php echo $item['class_code']; ?>"class="btn btn-primary">View</a>
                 </td>
                 </tbody>
                 <?php

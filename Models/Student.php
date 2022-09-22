@@ -16,7 +16,13 @@ class Student
 	// Database Connection Object
 	protected $connection;
 
-	public function __construct()
+	public function __construct(
+		$name = null,
+		$email = null,
+		$phone = null,
+		$student_number = null, 
+		$address = null, 
+		$program = null )
 	{
 		$this->name = $name;
         $this->email = $email;
@@ -91,7 +97,7 @@ class Student
 	public function getById($id)
 	{
 		try {
-			$sql = 'SELECT * FROM students WHERE id=:id';
+			$sql = 'SELECT * FROM students WHERE id=:id' ;
 			$statement = $this->connection->prepare($sql);
 			$statement->execute([
 				':id' => $id
@@ -107,44 +113,37 @@ class Student
 			$this->address = $row['address'];
 			$this->program = $row['program'];
 
+			return $row;
+
 		} catch (Exception $e) {
 			error_log($e->getMessage());
 		}
 	}
 
-	public function update($name, $email, $phone, $student_number, $address, $program)
+	public function update($id, $name, $email, $phone, $student_number, $address, $program)
 	{
 		try {
-			$sql = 'UPDATE students SET name=?, email=?, phone=?, student_number=?, address=?, program=? WHERE id=?';
+			$sql = 'UPDATE students SET name=:name, email=:email, phone=:phone, student_number=:student_number, address=:address, program=:program WHERE id=:id';
 			$statement = $this->connection->prepare($sql);
 			$statement->execute([
-				$name,
-				$email,
-				$phone,
-				$student_number,
-				$address,
-				$program,
-				$this->getId()
+				':id' => $id,
+				':name' => $name,
+				':email' => $email,
+				':phone' => $phone,
+				':student_number' => $student_number,
+				':address' => $address,
+				':program' => $program
 			]);
-			$this->name = $name;
-			$this->email = $email;
-			$this->phone = $phone;
-			$this->student_number = $student_number;
-			$this->address = $address;
-			$this->program = $program;
 		} catch (Exception $e) {
 			error_log($e->getMessage());
 		}
 	}
 
-	public function delete()
+	public function delete($extract_id)
 	{
 		try {
-			$sql = 'DELETE FROM students WHERE id=?';
-			$statement = $this->connection->prepare($sql);
-			$statement->execute([
-				$this->getId()
-			]);
+			$sql = "DELETE FROM students WHERE id IN ($extract_id)";
+			$statement = $this->connection->query($sql);
 		} catch (Exception $e) {
 			error_log($e->getMessage());
 		}

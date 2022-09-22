@@ -15,7 +15,12 @@ class Teacher
 	// Database Connection Object
 	protected $connection;
 
-	public function __construct()
+	public function __construct(
+		$name = null,
+		$email = null,
+		$phone = null,
+		$employee_number = null, 
+		$address = null )
 	{
 		$this->name = $name;
         $this->email = $email;
@@ -55,6 +60,11 @@ class Teacher
 		return $this->address;
 	}
 
+    public function getProgram()
+	{
+		return $this->program;
+	}
+
 
 	public function setConnection($connection)
 	{
@@ -71,7 +81,7 @@ class Teacher
 				':name' => $this->getName(),
 				':email' => $this->getEmail(),
 				':phone' => $this->getPhone(),
-				':employee_number' => $this->getemployeeNumber(),
+				':employee_number' => $this->getEmployeeNumber(),
                 ':address' => $this->getAddress()
 			]);
 
@@ -83,7 +93,7 @@ class Teacher
 	public function getById($id)
 	{
 		try {
-			$sql = 'SELECT * FROM teachers WHERE id=:id';
+			$sql = 'SELECT * FROM teachers WHERE id=:id' ;
 			$statement = $this->connection->prepare($sql);
 			$statement->execute([
 				':id' => $id
@@ -98,42 +108,36 @@ class Teacher
 			$this->employee_number = $row['employee_number'];
 			$this->address = $row['address'];
 
+			return $row;
+
 		} catch (Exception $e) {
 			error_log($e->getMessage());
 		}
 	}
 
-	public function update($name, $email, $phone, $employee_number, $address, $program)
+	public function update($id, $name, $email, $phone, $employee_number, $address)
 	{
 		try {
-			$sql = 'UPDATE teachers SET name=?, email=?, phone=?, employee_number=?, address=? WHERE id=?';
+			$sql = 'UPDATE teachers SET name=:name, email=:email, phone=:phone, employee_number=:employee_number, address=:address WHERE id=:id';
 			$statement = $this->connection->prepare($sql);
 			$statement->execute([
-				$name,
-				$email,
-                $phone,
-                $employee_number,
-                $address,
-				$this->getId()
+				':id' => $id,
+				':name' => $name,
+				':email' => $email,
+				':phone' => $phone,
+				':employee_number' => $employee_number,
+				':address' => $address
 			]);
-			$this->name = $name;
-			$this->email = $email;
-			$this->phone = $phone;
-			$this->employee_number = $employee_number;
-			$this->address = $address;
 		} catch (Exception $e) {
 			error_log($e->getMessage());
 		}
 	}
 
-	public function delete()
+	public function delete($extract_id)
 	{
 		try {
-			$sql = 'DELETE FROM teachers WHERE id=?';
-			$statement = $this->connection->prepare($sql);
-			$statement->execute([
-				$this->getId()
-			]);
+			$sql = "DELETE FROM teachers WHERE id IN ($extract_id)";
+			$statement = $this->connection->query($sql);
 		} catch (Exception $e) {
 			error_log($e->getMessage());
 		}

@@ -3,7 +3,7 @@
 namespace App;
 use \PDO;
 
-class Classes
+class Subject
 {
 	protected $id;
 	protected $name;
@@ -14,7 +14,11 @@ class Classes
 	// Database Connection Object
 	protected $connection;
 
-	public function __construct()
+	public function __construct(
+		$name = null,
+		$description = null,
+		$code = null,
+		$teacher_id = null )
 	{
 		$this->name = $name;
 		$this->description = $description;
@@ -89,6 +93,8 @@ class Classes
 			$this->name = $row['code'];
 			$this->name = $row['teacher_id'];
 
+			return $row;
+
 		} catch (Exception $e) {
 			error_log($e->getMessage());
 		}
@@ -113,14 +119,11 @@ class Classes
 		}
 	}
 
-	public function delete()
+	public function delete($extract_id)
 	{
 		try {
-			$sql = 'DELETE FROM classes WHERE id=?';
-			$statement = $this->connection->prepare($sql);
-			$statement->execute([
-				$this->getId()
-			]);
+			$sql = "DELETE FROM classes WHERE id IN ($extract_id)";
+			$statement = $this->connection->query($sql);
 		} catch (Exception $e) {
 			error_log($e->getMessage());
 		}
@@ -130,6 +133,17 @@ class Classes
 	{
 		try {
 			$sql = 'SELECT * FROM classes';
+			$data = $this->connection->query($sql)->fetchAll();
+			return $data;
+		} catch (Exception $e) {
+			error_log($e->getMessage());
+		}
+	}
+
+	public function getTeachers()
+	{
+		try {
+			$sql = 'SELECT name, employee_number FROM teachers';
 			$data = $this->connection->query($sql)->fetchAll();
 			return $data;
 		} catch (Exception $e) {

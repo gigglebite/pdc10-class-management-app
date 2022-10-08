@@ -19,7 +19,7 @@ $students = $student->getAll();
 <body>
 <div class="row">
 <div style="background-color: #7b73b4; width: 50%; margin: auto; padding: 10px; margin-bottom: 50px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;">
-<h2 class="header text-center"> DASHBOARD </h2>
+<h2 class="header text-center"> STUDENTS </h2>
 </div>
 </div>
 <div class="row mx-auto">

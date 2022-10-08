@@ -12,8 +12,15 @@ $rosters = $roster->listClasses();
   <head>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  </head>
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
   <body>
+  <div class="row">
+<div style="background-color: #F6B737; width: 50%; margin: auto; padding: 10px; margin-bottom: 50px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;">
+<h2 class="header text-center"> CLASS ROSTERS </h2>
+</div>
+
+<div class="mt-5">
 <div class="container">
 <div class="row">
 <div class="col">
@@ -25,7 +32,7 @@ $rosters = $roster->listClasses();
 </div>
 </div>
 <div class="row">
-    <table class="table table-hover">
+    <table class="table table-striped">
 
         <thead>
 
@@ -69,4 +76,20 @@ $rosters = $roster->listClasses();
 </div>
 </div>
 </body>
+<style>
+    * {
+        font-family: 'Poppins';
+    }
+
+    .header {
+        color: white;
+        font-weight: 600;
+    }
+
+    .table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+	background-color: #F1D974;
+}
+
+</style>
 </html>

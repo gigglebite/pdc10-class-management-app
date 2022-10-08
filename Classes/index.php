@@ -17,6 +17,41 @@ $classes = $class->getAll();
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
   <body>
+  <div class="col-9-half">
+<div style="background-color: #EF7F59; width: 50%; margin: auto; padding: 10px; margin-bottom: 50px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;">
+<h2 class="header text-center"> COURSES </h2>
+</div>
+<div class="row mx-auto">
+<!-- Courses !-->
+<div class="col-sm-4 d-flex justify-content-center">
+<div class="card text-center" style="width: 12rem; height: 6rem; background-color: #FFDDC9; border-radius: 30px;" >
+  <div class="card-body">
+  <a href="add.php" style="margin-bottom: 20px;"><i class="fa fa-book fa-2x" style="color:#EF7F59; " ></i></a>
+    <h5 class="card-title">Add Course</h5>
+  </div>
+</div>
+</div>
+<!-- Students !-->
+<div class="col-sm-4 d-flex justify-content-center">
+<div class="card text-center" style="width: 12rem; height: 6rem; background-color: #EF7F59; border-radius: 30px; " >
+  <img class="card-img-top">
+  <div class="card-body justify-content-center">
+  <a href="class-rosters/index1.php" style="margin: auto;"><i class="fa fa-refresh  fa-2x" style="color:white; " ></i></a>
+    <h5 class="card-title" style="color: white;">Update</h5>
+  </div>
+</div>
+</div>
+<!-- Teachers !-->
+<div class="col-sm-4 d-flex justify-content-center">
+<div class="card text-center" style="width: 12rem; height: 6rem; background-color: #FFDDC9; border-radius: 30px; " >
+  <img class="card-img-top">
+  <div class="card-body">
+  <a href="class-rosters/index1.php" style="margin: auto;"><i class="fa fa-trash  fa-2x" style="color:#EF7F59; " ></i></a>
+    <h5 class="card-title">Delete</h5>
+  </div>
+</div>
+</div>
+<div class="mt-5">
 <div class="container">
 <div class="row">
 <div class="col">
@@ -35,7 +70,7 @@ $classes = $class->getAll();
 </div>
 </div>
 <div class="row">
-    <table class="table table-hover">
+    <table class="table table-striped">
 
         <thead>
 
@@ -92,4 +127,20 @@ $classes = $class->getAll();
 </div>
 </div>
 </body>
+<style>
+    * {
+        font-family: 'Poppins';
+    }
+
+    .header {
+        color: white;
+        font-weight: 600;
+    }
+
+    .table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+	background-color: #EBB697;
+}
+
+</style>
 </html>

@@ -17,6 +17,11 @@ $rosters = $roster->getRoster($_GET['class_code']);
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
   <body>
+  <div class="row">
+<div style="background-color: #F6B737; width: 50%; margin: auto; padding: 10px; margin-bottom: 50px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;">
+<h2 class="header text-center"> CLASS ROSTERS </h2>
+</div>
+</div>
 <div class="container">
 <div class="row">
 <div class="col">

@@ -143,6 +143,16 @@ class Teacher
 		}
 	}
 
+	public function getTotalTeacher(){
+		try {
+			$sql = 'SELECT COUNT(id) AS total_teachers FROM teachers';
+			$data = $this->connection->query($sql)->fetch();
+			return $data;
+		} catch (Exception $e) {
+			error_log($e->getMessage());
+		}
+	}
+
 	public function getAll()
 	{
 		try {

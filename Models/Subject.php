@@ -150,4 +150,14 @@ class Subject
 			error_log($e->getMessage());
 		}
 	}
+
+	public function getTotalClass(){
+		try {
+			$sql = 'SELECT COUNT(id) AS total_classes FROM classes';
+			$data = $this->connection->query($sql)->fetch();
+			return $data;
+		} catch (Exception $e) {
+			error_log($e->getMessage());
+		}
+	}
 }

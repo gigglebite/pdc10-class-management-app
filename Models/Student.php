@@ -149,6 +149,16 @@ class Student
 		}
 	}
 
+	public function getTotalStudent(){
+		try {
+			$sql = 'SELECT COUNT(id) AS total_students FROM students';
+			$data = $this->connection->query($sql)->fetch();
+			return $data;
+		} catch (Exception $e) {
+			error_log($e->getMessage());
+		}
+	}
+
 	public function getAll()
 	{
 		try {

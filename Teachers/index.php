@@ -21,8 +21,44 @@ $teachers = $teacher->getAll();
 <div style="background-color: #5C69F4; width: 50%; margin: auto; padding: 10px; margin-bottom: 50px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;">
 <h2 class="header text-center"> TEACHERS </h2>
 </div>
+<form method="POST" action="edit.php">
 <div class="row mx-auto">
-<!-- Courses !-->
+<!-- Add courses  !-->
+<div class="col-sm-4 d-flex justify-content-center">
+  <button formaction="add.php" type="submit"><div class="card text-center" style="width: 12rem; height: 6rem; background-color: #D5DDFF; border-radius: 30px;" >
+  <div class="card-body">
+  <i class="fa fa-user-plus fa-2x" style="color:#5C69F4; " ></i>
+    <h5 class="card-title">Add Teacher</h5>
+  </div>
+  </div>
+  </div>
+</button>
+<!--  Start of the form !-->
+<!-- Update courses !-->
+<div class="col-sm-4 d-flex justify-content-center">
+<button type="submit" name="edit" value="edit">
+<div class="card text-center" style="width: 12rem; height: 6rem; background-color: #5C69F4; border-radius: 30px; " >
+  <img class="card-img-top">
+  <div class="card-body justify-content-center">
+    <i class="fa fa-refresh  fa-2x" style="color:white; " ></i></a>
+    <h5 class="card-title" style="color: white;">Update</h5>
+  </div>
+</div>
+</div></button>
+<!-- Delete courses !-->
+<div class="col-sm-4 d-flex justify-content-center">
+<button formaction="delete.php" type="submit" name="delete" value="delete" onclick="return confirm('Are you sure you want to delete this item?')">
+<div class="card text-center" style="width: 12rem; height: 6rem; background-color: #D5DDFF; border-radius: 30px; " >
+  <img class="card-img-top">
+  <div class="card-body">
+  <i class="fa fa-trash  fa-2x" style="color:#5C69F4; " ></i></a>
+    <h5 class="card-title">Delete</h5>
+  </div>
+</div>
+</div></button>
+</div>
+<!-- <div class="row mx-auto">
+
 <div class="col-sm-4 d-flex justify-content-center">
 <div class="card text-center" style="width: 12rem; height: 6rem; background-color: #D5DDFF; border-radius: 30px;" >
   <div class="card-body">
@@ -31,7 +67,7 @@ $teachers = $teacher->getAll();
   </div>
 </div>
 </div>
-<!-- Students !-->
+
 <div class="col-sm-4 d-flex justify-content-center">
 <div class="card text-center" style="width: 12rem; height: 6rem; background-color: #5C69F4; border-radius: 30px; " >
   <img class="card-img-top">
@@ -41,7 +77,7 @@ $teachers = $teacher->getAll();
   </div>
 </div>
 </div>
-<!-- Teachers !-->
+
 <div class="col-sm-4 d-flex justify-content-center">
 <div class="card text-center" style="width: 12rem; height: 6rem; background-color: #D5DDFF; border-radius: 30px; " >
   <img class="card-img-top">
@@ -50,22 +86,14 @@ $teachers = $teacher->getAll();
     <h5 class="card-title">Delete</h5>
   </div>
 </div>
-</div>
+</div> -->
 <div class="mt-5">
 <div class="container">
 <div class="row">
-<div class="col">
-    <h2>Teachers</h2>
-</div>
-<div class="col">
 <div class="row">
 <div class="col">
-<a href="add.php"><button class="btn btn-primary">Add</button></a>
-</div>
-<div class="col">
-<form method="POST" action="delete.php">
-<button type="submit" name="delete" value="delete"  class="btn btn-danger">Delete</button>
-</div>
+
+
 </div>
 </div>
 </div>
@@ -82,7 +110,6 @@ $teachers = $teacher->getAll();
                 <th>Phone</th>
                 <th>Email</th>
                 <th>Address</th>
-                <th></th>
 
             </tr>
 
@@ -117,9 +144,6 @@ $teachers = $teacher->getAll();
                 <td>
                     <?php echo $item['address']; ?>
                 </td>
-                <td>
-                <a href="edit.php?id=<?php echo $item['id'] ?>"class="btn btn-primary">Update</a>
-                </td>
                 </tbody>
                 <?php
 
@@ -136,6 +160,16 @@ $teachers = $teacher->getAll();
         font-family: 'Poppins';
     }
 
+    button {
+      background-color: white;
+      border: none;
+      margin: 0 auto;
+      display: block;
+      width: 12rem; 
+      height: 6rem;
+      border-radius: 30px;
+    }
+
     .header {
         color: white;
         font-weight: 600;
@@ -143,7 +177,7 @@ $teachers = $teacher->getAll();
 
     .table-striped>tbody>tr:nth-child(odd)>td,
 .table-striped>tbody>tr:nth-child(odd)>th {
-	background-color: #CFDFF6;
+	background-color: #dfe5ff;
 }
 
 </style>

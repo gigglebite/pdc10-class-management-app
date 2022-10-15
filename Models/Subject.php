@@ -130,7 +130,7 @@ class Subject
 	public function getAll()
 	{
 		try {
-			$sql = 'SELECT * , classes.name as class_name, teachers.name as teacher_name 
+			$sql = 'SELECT classes.id as id, code, description, classes.name as class_name, teachers.name as teacher_name 
 			FROM classes
 			INNER JOIN teachers
 			ON classes.teacher_id = teachers.employee_number';

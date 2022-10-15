@@ -39,41 +39,19 @@ $teachers = $teacher->getTotalTeacher();
 
         <ul class="list-unstyled components">
             <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
-                        <a href="#">Home 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 3</a>
-                    </li>
-                </ul>
+            <a href="index.php">Home</a>
             </li>
             <li>
-                <a href="#">About</a>
+                <a href="classes/index.php">Courses</a>
             </li>
             <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="#">Page 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 3</a>
-                    </li>
-                </ul>
+                <a href="students/index.php">Students</a>
             </li>
             <li>
-                <a href="#">Classes</a>
+                <a href="teachers/index.php">Teachers</a>
             </li>
             <li>
-                <a href="#">Rosters</a>
+                <a href="class-rosters/list-rosters.php">Rosters</a>
             </li>
         </ul>
     </nav>
@@ -128,7 +106,7 @@ $teachers = $teacher->getTotalTeacher();
   <div class="card-body">
     <h3 class="card-title">Rosters</h3>
     <p class="number card-text"><?php echo $classes['total_classes'] ?> rosters</p>
-    <a href="class-rosters/index1.php"><i class="fa fa-long-arrow-right fa-2x" style="color:#F6B737;" ></i></a>
+    <a href="class-rosters/list-rosters.php"><i class="fa fa-long-arrow-right fa-2x" style="color:#F6B737;" ></i></a>
   </div>
 </div>
 </div>
@@ -229,7 +207,7 @@ font-family: 'Poppins';
     .wrapper {
     display: flex;
     align-items: stretch;
-    height: 100vh;
+    height: 100%;
 }
 
 
@@ -244,6 +222,7 @@ font-family: 'Poppins';
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
+    height: 100vh;
 }
 
 #sidebar .sidebar-header {

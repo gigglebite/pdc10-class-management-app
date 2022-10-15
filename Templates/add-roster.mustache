@@ -1,12 +1,3 @@
-<?php
-include(dirname(dirname(__FILE__)) . '/Config/init.php');
-use App\ClassRoster;
-$subject = new ClassRoster('');
-$subject->setConnection($connection);
-$students = $subject->getStudents();
-$classes = $subject->getCourses();
-?>
-
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -18,56 +9,29 @@ $classes = $subject->getCourses();
   <div class="card mx-auto">
   <div class="card-body">
     <h2 class="card-title text-center">ADD ROSTER</h2>
-    <form method="POST" action="">
+    <form method="POST" action="create-roster.php">
   <div class="mb-3">
   <label for="code" class="form-label">Class Code</label>
   <select class="form-select" aria-label="Default select example" name="code" required>
-      <option selected>Choose...</option>
-      <?php
-                foreach ($classes as $item) {
-      ?>
-      <option value="<?php echo $item['code']; ?>"><?php echo $item['code']; ?></option>
-      <?php } ?></select>
+      <option selected>Choose...
+      {{# classes }}
+      <option value="{{ code }}">
+      {{ code }}
+      {{/ classes }}</option></select>
   </div>
   <div class="mb-3">
   <label for="description" class="form-label">Student Number</label>
     <select class="form-select" aria-label="Default select example" name="student_number" required>
-      <option selected>Choose...</option>
-      <?php
-                foreach ($students as $item) {
-      ?>
-      <option value="<?php echo $item['student_number']; ?>"><?php echo $item['name']; ?></option>
-      <?php } ?>
-  </div>
-    </select>
+      <option selected>Choose...
+      {{# students }}
+      <option value="{{ student_number }}">
+      {{ name }}
+      {{/ students }}</option></select>
   </div>
   <div class="text-center">
   <button type="submit" name="SubmitButton" class="btn btn-primary">Add Roster</button>
   </form>
-  <?php
-  if(isset($_POST['SubmitButton'])){ 
-    //check if form was submitted
-    try {
-      $student = new ClassRoster($_POST['code'],$_POST['student_number']);
-      $student->setConnection($connection);
-      $student->save();
-      header("Location: index1.php"); 
-  exit();
-    } catch (Exception $e) {
-        error_log($e->getMessage());
-    }
-
-}  
-?>
-<!--
-  <select class="form-select" aria-label="Default select example">
-  <option selected>Select your program</option>
-  <option value="1">BSIT</option>
-  <option value="2">BSCS</option>
-</select>
-!-->
 </div>
-  </div>
 </div>
 </body>
 <style>
@@ -84,7 +48,7 @@ $classes = $subject->getCourses();
     background-color:  #F8E79F ;
     width: 30rem; 
     border-radius: 15px; 
-    margin-top: 5%;
+    margin-top: 10%;
   }
 
   .card-title {
@@ -102,7 +66,66 @@ $classes = $subject->getCourses();
   .btn:hover {
     background-color:  #D89A1B;
   }
+
+      .col-9-half{
+        width: 80%;
+    }
+
+
+    .wrapper {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+}
+
+
+    a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar {
+    /* don't forget to add all the previously mentioned styles here too */
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+    height: 100vh;
+}
+
+#sidebar .sidebar-header {
+    padding: 15px;
+    background: #6d7fcc;
+}
+
+#sidebar ul.components {
+    padding: 15px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
 </style>
 </html>
-
-<!-- so now... !-->

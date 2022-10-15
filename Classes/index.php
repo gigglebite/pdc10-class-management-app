@@ -50,7 +50,7 @@ $teachers = $class->getTeachers();
 </div></button>
 <!-- Delete courses !-->
 <div class="col-sm-4 d-flex justify-content-center">
-<button formaction="delete.php" type="submit" name="delete" value="delete">
+<button formaction="delete.php" type="submit" name="delete" value="delete" onclick="return confirm('Are you sure you want to delete this item?')">
 <div class="card text-center" style="width: 12rem; height: 6rem; background-color: #FFDDC9; border-radius: 30px; " >
   <img class="card-img-top">
   <div class="card-body">
@@ -113,6 +113,7 @@ $teachers = $class->getTeachers();
                 <td>
                     <?php echo $item['teacher_name']; ?>
                 </td>
+                </tr>
                 </tbody>
                 <?php
 

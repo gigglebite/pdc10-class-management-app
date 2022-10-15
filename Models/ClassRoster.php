@@ -63,7 +63,11 @@ class ClassRoster
 	public function getById($id)
 	{
 		try {
-			$sql = 'SELECT * FROM class_rosters WHERE id=:id';
+			$sql = 'SELECT class_rosters.id AS id, class_code, class_rosters.student_number AS student_number, students.name as student_name
+			FROM class_rosters 
+			INNER JOIN students
+			ON class_rosters.student_number = students.student_number
+			WHERE class_rosters.id=:id';
 			$statement = $this->connection->prepare($sql);
 			$statement->execute([
 				':id' => $id
@@ -81,18 +85,16 @@ class ClassRoster
 		}
 	}
 
-	public function update($class_code, $student_number)
+	public function update($id, $class_code, $student_number)
 	{
 		try {
-			$sql = 'UPDATE class_rosters SET class_code=?,student_number=? WHERE id=?';
+			$sql = 'UPDATE class_rosters SET class_code=:class_code, student_number=:student_number WHERE id=:id';
 			$statement = $this->connection->prepare($sql);
 			$statement->execute([
-				$class_code,
-				$student_number,
-				$this->getId()
+				':id' => $id,
+				':class_code' => $class_code,
+				':student_number' =>  $student_number
 			]);
-			$this->class_code = $class_code;
-            $this->student_number = $student_number;
 		} catch (Exception $e) {
 			error_log($e->getMessage());
 		}

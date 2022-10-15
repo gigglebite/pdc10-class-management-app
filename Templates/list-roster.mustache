@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
+</head>
+  <body class="bg">
+  <div class="row">
+<div class="col-lg-2">
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>E-Learning</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li>
+            <a href="../index.php">Home</a>
+            </li>
+            <li>
+                <a href="../classes/index.php">Courses</a>
+            </li>
+            <li>
+                <a href="../students/index.php">Students</a>
+            </li>
+            <li>
+                <a href="../teachers/index.php">Teachers</a>
+            </li>
+            <li class="active">
+                <a href="../class-rosters/list-rosters.php">Rosters</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+</div>
+<div class="col-9-half">
+<div style="background-color: #F6B737; width: 50%; margin: auto; padding: 10px; margin-bottom: 50px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;">
+<h2 class="header text-center"> CLASS ROSTERS </h2>
+</div>
+<form method="POST" action="edit.php">
+<div class="row mx-auto">
+<!-- Add courses  !-->
+<div class=" d-flex justify-content-center">
+  <button formaction="add.php" type="submit"><div class="card text-center" style="width: 12rem; height: 6rem; background-color: #FFF3C1; border-radius: 30px;" >
+  <div class="card-body">
+  <i class="fa fa-book fa-2x" style="color:#F6B737; " ></i>
+    <h5 class="card-title">Add Student</h5>
+  </div>
+  </div>
+  </div>
+</button>
+</div>
+<!-- !-->
+<div class="mt-5">
+<div class="container">
+<div class="row">
+<div class="col">
+    <h2>Class Roster</h2>
+</div>
+<div class="col">
+<div class="row">
+</div>
+</div>
+</div>
+<div class="row">
+    <table class="table table-striped">
+
+        <thead>
+
+            <tr>
+                <th>Course Name </th>
+                <th>Assigned Teacher</th>
+                <th>Students Enrolled<th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+        {{# rosters }}
+            <tr>
+                <td>
+                    {{ course_name }}
+                </td>
+                <td>
+                    {{ teacher_name }}
+                </td>
+                <td>
+                    {{ students_enrolled }}
+                </td>
+                <td>
+                <a href="list-rosters1.php?class_code={{ class_code }}"class="btn btn-primary">View</a>
+                </td>
+            </tr>
+        {{/ rosters }}
+        </tbody>
+</form>
+</table>
+</div>
+</div>
+</body>
+<style>
+    * {
+        font-family: 'Poppins';
+    }
+
+    .bg {
+      background-image: url('../resources/background.png');
+      background-size: cover;
+
+    }
+
+    button {
+      background-color: white;
+      border: none;
+      margin: 0 auto;
+      display: block;
+      width: 12rem; 
+      height: 6rem;
+      border-radius: 30px;
+    }
+
+    .header {
+        color: white;
+        font-weight: 600;
+    }
+
+    .table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+	background-color: #F8E79F;
+}
+
+
+    .number {
+        margin-left: 30px;
+        font-weight: 600;
+    }
+
+    .col-9-half{
+        width: 80%;
+    }
+
+
+    .wrapper {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+}
+
+
+    a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar {
+    /* don't forget to add all the previously mentioned styles here too */
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+    height: 100vh;
+}
+
+#sidebar .sidebar-header {
+    padding: 15px;
+    background: #6d7fcc;
+}
+
+#sidebar ul.components {
+    padding: 15px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+</style>
+</html>

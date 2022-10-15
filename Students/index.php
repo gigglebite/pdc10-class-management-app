@@ -47,7 +47,7 @@ $students = $student->getAll();
 <div class="card text-center" style="width: 12rem; height: 6rem; background-color: #e8dcff; border-radius: 30px; " >
   <img class="card-img-top">
   <div class="card-body">
-  <a href="class-rosters/index1.php" style="margin: auto;"><i class="fa fa-trash  fa-2x" style="color:#7b73b4; " ></i></a>
+  <a href="delete.php" style="margin: auto;"><i class="fa fa-trash  fa-2x" style="color:#7b73b4; " ></i></a>
     <h5 class="card-title">Delete</h5>
   </div>
 </div>

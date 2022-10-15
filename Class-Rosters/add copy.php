@@ -18,7 +18,7 @@ $classes = $subject->getCourses();
   <div class="card mx-auto">
   <div class="card-body">
     <h2 class="card-title text-center">ADD ROSTER</h2>
-    <form method="POST" action="create-roster.php">
+    <form method="POST" action="">
   <div class="mb-3">
   <label for="code" class="form-label">Class Code</label>
   <select class="form-select" aria-label="Default select example" name="code" required>
@@ -44,6 +44,21 @@ $classes = $subject->getCourses();
   <div class="text-center">
   <button type="submit" name="SubmitButton" class="btn btn-primary">Add Roster</button>
   </form>
+  <?php
+  if(isset($_POST['SubmitButton'])){ 
+    //check if form was submitted
+    try {
+      $student = new ClassRoster($_POST['code'],$_POST['student_number']);
+      $student->setConnection($connection);
+      $student->save();
+      header("Location: index1.php"); 
+  exit();
+    } catch (Exception $e) {
+        error_log($e->getMessage());
+    }
+
+}  
+?>
 <!--
   <select class="form-select" aria-label="Default select example">
   <option selected>Select your program</option>

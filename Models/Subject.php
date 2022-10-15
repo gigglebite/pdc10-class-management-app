@@ -130,7 +130,10 @@ class Subject
 	public function getAll()
 	{
 		try {
-			$sql = 'SELECT * FROM classes';
+			$sql = 'SELECT * , classes.name as class_name, teachers.name as teacher_name 
+			FROM classes
+			INNER JOIN teachers
+			ON classes.teacher_id = teachers.employee_number';
 			$data = $this->connection->query($sql)->fetchAll();
 			return $data;
 		} catch (Exception $e) {

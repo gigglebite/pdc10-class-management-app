@@ -37,7 +37,7 @@ $students = $student->getAll();
 <div class="card text-center" style="width: 12rem; height: 6rem; background-color: #7b73b4; border-radius: 30px; " >
   <img class="card-img-top">
   <div class="card-body justify-content-center">
-  <a href="class-rosters/index1.php" style="margin: auto;"><i class="fa fa-refresh  fa-2x" style="color:white; " ></i></a>
+  <a href="edit.php" style="margin: auto;"><i class="fa fa-refresh  fa-2x" style="color:white; " ></i></a>
     <h5 class="card-title" style="color: white;">Update</h5>
   </div>
 </div>

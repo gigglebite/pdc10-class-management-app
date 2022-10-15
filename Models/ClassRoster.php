@@ -122,7 +122,13 @@ class ClassRoster
 	public function getRoster($class_code)
 	{
 		try {
-			$sql = 'SELECT * FROM class_rosters WHERE class_code=:class_code';
+			$sql = 'SELECT class_rosters.id AS id, classes.name AS class_name, class_code, students.student_number AS student_no, students.name AS student_name
+			FROM class_rosters
+			INNER JOIN students
+			ON  class_rosters.student_number  = students.student_number
+			INNER JOIN classes
+			ON class_rosters.class_code = classes.code
+			WHERE class_code=:class_code';
 			$statement = $this->connection->prepare($sql);
 			$statement->execute([
 				':class_code' => $class_code

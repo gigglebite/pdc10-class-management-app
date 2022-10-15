@@ -22,25 +22,56 @@ $rosters = $roster->getRoster($_GET['class_code']);
 <h2 class="header text-center"> CLASS ROSTERS </h2>
 </div>
 </div>
+<form method="POST" action="edit.php">
+<div class="row mx-auto">
+<!-- Add courses  !-->
+<div class="col-sm-4 d-flex justify-content-center">
+  <button formaction="add.php" type="submit"><div class="card text-center" style="width: 12rem; height: 6rem; background-color: #FFF3C1; border-radius: 30px;" >
+  <div class="card-body">
+  <i class="fa fa-book fa-2x" style="color:#F6B737; " ></i>
+    <h5 class="card-title">Add Student</h5>
+  </div>
+  </div>
+  </div>
+</button>
+<!--  Start of the form !-->
+<!-- Update courses !-->
+<div class="col-sm-4 d-flex justify-content-center">
+<button type="submit" name="edit" value="edit">
+<div class="card text-center" style="width: 12rem; height: 6rem; background-color: #F6B737; border-radius: 30px; " >
+  <img class="card-img-top">
+  <div class="card-body justify-content-center">
+    <i class="fa fa-refresh  fa-2x" style="color:white; " ></i></a>
+    <h5 class="card-title" style="color: white;">Update</h5>
+  </div>
+</div>
+</div></button>
+<!-- Delete courses !-->
+<div class="col-sm-4 d-flex justify-content-center">
+<button formaction="delete.php" type="submit" name="delete" value="delete">
+<div class="card text-center" style="width: 12rem; height: 6rem; background-color: #FFF3C1; border-radius: 30px; " >
+  <img class="card-img-top">
+  <div class="card-body">
+  <i class="fa fa-trash  fa-2x" style="color:#F6B737; " ></i></a>
+    <h5 class="card-title">Delete</h5>
+  </div>
+</div>
+</div></button>
+</div>
+<!-- !-->
+<div class="mt-5">
 <div class="container">
 <div class="row">
-<div class="col">
-    <h2>Class Roster</h2>
-</div>
-<div class="col">
 <div class="row">
 <div class="col">
-<a href="add.php"><button class="btn btn-primary">Add</button></a>
-</div>
-<div class="col">
-<form method="POST" action="delete.php">
-<button type="submit" name="delete" value="delete"  class="btn btn-danger">Delete</button>
+
+
 </div>
 </div>
 </div>
-</div>
+
 <div class="row">
-    <table class="table table-hover">
+    <table class="table table-striped">
 
         <thead>
 
@@ -48,8 +79,9 @@ $rosters = $roster->getRoster($_GET['class_code']);
                 <th>Check </th>
                 <th>ID </th>
                 <th>Class Code</th>
+                <th>Class Name</th>
                 <th>Stud No.</th>
-                <th></th>
+                <th>Stud Name</th>
 
             </tr>
 
@@ -73,11 +105,13 @@ $rosters = $roster->getRoster($_GET['class_code']);
                     <?php echo $item['class_code']; ?>
                 </td>
                 <td>
-                    <?php echo $item['student_number']; ?>
+                    <?php echo $item['class_name']; ?>
                 </td>
                 <td>
+                    <?php echo $item['student_no']; ?>
+                </td>
                 <td>
-                <a href="edit.php?id=<?php echo $item['id'] ?>"class="btn btn-primary">Update</a>
+                    <?php echo $item['student_name']; ?>
                 </td>
                 </tbody>
                 <?php
@@ -90,4 +124,30 @@ $rosters = $roster->getRoster($_GET['class_code']);
 </div>
 </div>
 </body>
+<style>
+    * {
+        font-family: 'Poppins';
+    }
+
+    button {
+      background-color: white;
+      border: none;
+      margin: 0 auto;
+      display: block;
+      width: 12rem; 
+      height: 6rem;
+      border-radius: 30px;
+    }
+
+    .header {
+        color: white;
+        font-weight: 600;
+    }
+
+    .table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+	background-color: #F8E79F;
+}
+
+</style>
 </html>

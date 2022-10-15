@@ -81,7 +81,7 @@ $teachers = $class->getTeachers();
                 <th>Course Name</th>
                 <th>Code</th>
                 <th>Description</th>
-                <th>Professor</th>
+                <th>Professor Name</th>
 
             </tr>
 
@@ -102,7 +102,7 @@ $teachers = $class->getTeachers();
                 </td>
 
                 <td>
-                    <?php echo $item['name']; ?>
+                    <?php echo $item['class_name']; ?>
                 </td>
                 <td>
                     <?php echo $item['code']; ?>
@@ -111,7 +111,7 @@ $teachers = $class->getTeachers();
                     <?php echo $item['description']; ?>
                 </td>
                 <td>
-                    <?php echo $item['teacher_id']; ?>
+                    <?php echo $item['teacher_name']; ?>
                 </td>
                 </tbody>
                 <?php

@@ -40,7 +40,6 @@ $rosters = $roster->listClasses();
                 <th>Course Name </th>
                 <th>Assigned Teacher</th>
                 <th>Students Enrolled<th>
-                <th></th>
 
             </tr>
 

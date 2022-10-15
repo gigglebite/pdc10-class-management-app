@@ -38,7 +38,6 @@ $teachers = $teacher->getTotalTeacher();
         </div>
 
         <ul class="list-unstyled components">
-            <p>Eme lang</p>
             <li class="active">
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">

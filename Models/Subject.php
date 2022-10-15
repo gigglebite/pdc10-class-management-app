@@ -100,20 +100,18 @@ class Subject
 		}
 	}
 
-	public function update($name, $description, $code, $teacher_id)
+	public function update($id, $name, $code, $description, $teacher_id)
 	{
 		try {
-			$sql = 'UPDATE classes SET name=?, description=?, code=?, teacher_id=? WHERE id=?';
+			$sql = 'UPDATE classes SET name=:name, code=:code, description=:description, teacher_id=:teacher_id WHERE id=:id';
 			$statement = $this->connection->prepare($sql);
 			$statement->execute([
-				$task,
-				$is_completed,
-				$this->getId()
+				':id' => $id,
+				':name' => $name,
+				':code' => $code,
+				':description' => $description,
+				':teacher_id' => $teacher_id
 			]);
-		$this->name = $name;
-		$this->description = $description;
-        $this->code = $code;
-        $this->teacher_id = $teacher_id;
 		} catch (Exception $e) {
 			error_log($e->getMessage());
 		}

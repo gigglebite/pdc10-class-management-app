@@ -42,41 +42,6 @@
 <h2 class="header text-center"> TEACHERS </h2>
 </div>
 <form method="POST" action="edit.php">
-<div class="row mx-auto">
-<!-- Add courses  !-->
-<div class="col-sm-4 d-flex justify-content-center">
-  <button formaction="add.php" type="submit"><div class="card text-center" style="width: 12rem; height: 6rem; background-color: #D5DDFF; border-radius: 30px;" >
-  <div class="card-body">
-  <i class="fa fa-user-plus fa-2x" style="color:#5C69F4; " ></i>
-    <h5 class="card-title">Add Teacher</h5>
-  </div>
-  </div>
-  </div>
-</button>
-<!--  Start of the form !-->
-<!-- Update courses !-->
-<div class="col-sm-4 d-flex justify-content-center">
-<button type="submit" name="edit" value="edit">
-<div class="card text-center" style="width: 12rem; height: 6rem; background-color: #5C69F4; border-radius: 30px; " >
-  <img class="card-img-top">
-  <div class="card-body justify-content-center">
-    <i class="fa fa-refresh  fa-2x" style="color:white; " ></i></a>
-    <h5 class="card-title" style="color: white;">Update</h5>
-  </div>
-</div>
-</div></button>
-<!-- Delete courses !-->
-<div class="col-sm-4 d-flex justify-content-center">
-<button formaction="delete.php" type="submit" name="delete" value="delete" onclick="return confirm('Are you sure you want to delete this item?')">
-<div class="card text-center" style="width: 12rem; height: 6rem; background-color: #D5DDFF; border-radius: 30px; " >
-  <img class="card-img-top">
-  <div class="card-body">
-  <i class="fa fa-trash  fa-2x" style="color:#5C69F4; " ></i></a>
-    <h5 class="card-title">Delete</h5>
-  </div>
-</div>
-</div></button>
-</div>
 <!-- <div class="row mx-auto">
 
 <div class="col-sm-4 d-flex justify-content-center">
@@ -118,32 +83,23 @@
 </div>
 </div>
 <div class="row">
+    <h1>{{#teachers}} Classes of {{ name }} {{/teachers}}</h1>
+
     <table class="table table-striped">
 
         <thead>
 
             <tr>
-                <th>Check </th>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Emp. No.</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Subjects</th>
+                <th>Subject Name</th>
+                <th>Class Code</th>
 
             </tr>
 
         </thead>
 
-
-        <tbody>
-
-            {{# teachers }}
+        {{#classes}}
             <tr>
-                <td>
-                <input type="checkbox" name="checkbox[]" value= "{{ id }}" style="margin-left:auto; margin-right:auto;">
-                </td>
                 <td>
                     {{ id }}
                 </td>
@@ -152,22 +108,11 @@
                     {{ name }}
                 </td>
                 <td>
-                    {{ employee_number }}
+                    {{ code }}
                 </td>
-                <td>
-                    {{ phone }}
-                </td>
-                <td>
-                    {{ email }}
-                </td>
-                <td>
-                    {{ address }}
-                </td>
-                <td>
-                <a href="list-by-teacher.php?teacher_id={{employee_number}}"class="btn btn-primary">View</a>
-                </td>
+</tr>
+{{/classes}}
                 </tbody>
-                {{/ teachers }}
 </form>
 </table>
 </div>

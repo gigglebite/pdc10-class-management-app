@@ -90,6 +90,27 @@ class Teacher
 		}
 	}
 
+	public function viewClasses($teacher_id){
+		try {
+			$sql = 'SELECT classes.id as id , classes.name as name, classes.description as description, classes.code as code, classes.teacher_id,
+			 teachers.name as teacher_name
+			 FROM classes
+			 INNER JOIN teachers
+			 ON classes.teacher_id = teachers.employee_number
+			WHERE teacher_id=:id' ;
+			$statement = $this->connection->prepare($sql);
+			$statement->execute([
+				':id' => $teacher_id
+			]);
+
+			$data = $statement->fetchAll();
+			return $data;
+
+		} catch (Exception $e) {
+			error_log($e->getMessage());
+		}
+	}
+
 	public function getById($id)
 	{
 		try {
@@ -99,14 +120,25 @@ class Teacher
 				':id' => $id
 			]);
 
-			$row = $statement->fetch();
+			$row = $statement->fetchAll();
 
-			$this->id = $row['id'];
-			$this->name = $row['name'];
-			$this->email = $row['email'];
-			$this->phone = $row['phone'];
-			$this->employee_number = $row['employee_number'];
-			$this->address = $row['address'];
+			return $row;
+
+		} catch (Exception $e) {
+			error_log($e->getMessage());
+		}
+	}
+
+	public function getByTeacher($teacher_id)
+	{
+		try {
+			$sql = 'SELECT * FROM teachers WHERE employee_number=:id' ;
+			$statement = $this->connection->prepare($sql);
+			$statement->execute([
+				':id' => $teacher_id
+			]);
+
+			$row = $statement->fetchAll();
 
 			return $row;
 

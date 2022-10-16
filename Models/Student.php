@@ -94,6 +94,42 @@ class Student
 		}
 	}
 
+	public function viewEnrolled($student_number){
+		try {
+			$sql = 'SELECT class_rosters.class_code as code, classes.name as name
+			FROM class_rosters
+			INNER JOIN classes
+			ON class_rosters.class_code = classes.code
+			where student_number=:student_number;' ;
+			$statement = $this->connection->prepare($sql);
+			$statement->execute([
+				':student_number' => $student_number
+			]);
+
+			$data = $statement->fetchAll();
+			return $data;
+
+		} catch (Exception $e) {
+			error_log($e->getMessage());
+		}
+	}
+
+	public function getByStudent($student_number)
+	{
+		try {
+			$sql = 'SELECT name FROM students WHERE student_number=:id' ;
+			$statement = $this->connection->prepare($sql);
+			$statement->execute([
+				':id' => $student_number
+			]);
+
+			$row = $statement->fetch();
+			return $row;
+		} catch (Exception $e) {
+			error_log($e->getMessage());
+		}
+	}
+
 	public function getById($id)
 	{
 		try {

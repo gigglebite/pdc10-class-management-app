@@ -39,7 +39,7 @@ $teachers = $teacher->getTotalTeacher();
 
         <ul class="list-unstyled components">
             <li class="active">
-            <a href="/index.php">Home</a>
+            <a href="index.php">Home</a>
             </li>
             <li>
                 <a href="classes/list-classes.php">Courses</a>

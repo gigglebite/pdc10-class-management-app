@@ -39,16 +39,16 @@ $teachers = $teacher->getTotalTeacher();
 
         <ul class="list-unstyled components">
             <li class="active">
-            <a href="index.php">Home</a>
+            <a href="/index.php">Home</a>
             </li>
             <li>
-                <a href="classes/index.php">Courses</a>
+                <a href="classes/list-classes.php">Courses</a>
             </li>
             <li>
-                <a href="students/index.php">Students</a>
+                <a href="students/list-student.php">Students</a>
             </li>
             <li>
-                <a href="teachers/index.php">Teachers</a>
+                <a href="teachers/list-teacher.php">Teachers</a>
             </li>
             <li>
                 <a href="class-rosters/list-rosters.php">Rosters</a>
@@ -177,11 +177,6 @@ font-family: 'Poppins';
 
     h2 {
       margin-left: 5px;
-    }
-
-    h3 {
-        margin-left: 5px; 
-        font-weight: 600;
     }
 
     .header{

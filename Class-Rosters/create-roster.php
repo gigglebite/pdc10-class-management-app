@@ -8,6 +8,6 @@ use App\ClassRoster;
       $student = new ClassRoster($code, $student_number);
       $student->setConnection($connection);
       $student->save();
-      header("Location: list-roster.php");
+      header("Location: list-rosters.php");
 
 ?>

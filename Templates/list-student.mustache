@@ -7,8 +7,37 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
-<div class="row">
+  <body class="bg">
+  <div class="row">
+<div class="col-lg-2">
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>E-Learning</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li>
+            <a href="../index.php">Home</a>
+            </li>
+            <li>
+                <a href="../classes/list-classes.php">Courses</a>
+            </li>
+            <li class="active">
+                <a href="../students/list-student.php">Students</a>
+            </li>
+            <li>
+                <a href="../teachers/list-teacher.php">Teachers</a>
+            </li>
+            <li >
+                <a href="../class-rosters/list-rosters.php">Rosters</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+</div>
+<div class="col-9-half">
 <div style="background-color: #7b73b4; width: 50%; margin: auto; padding: 10px; margin-bottom: 50px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;">
 <h2 class="header text-center"> DASHBOARD </h2>
 </div>
@@ -48,45 +77,12 @@
 </div>
 </div></button>
 </div>
-<!-- <div class="row mx-auto">
-
-<div class="col-sm-4 d-flex justify-content-center">
-<div class="card text-center" style="width: 12rem; height: 6rem; background-color: #e8dcff; border-radius: 30px;" >
-  <div class="card-body">
-  <a href="add.php" style="margin-bottom: 20px;"><i class="fa fa-user-plus fa-2x" style="color:#7b73b4; " ></i></a>
-    <h5 class="card-title">Add Student</h5>
-  </div>
-</div>
-</div>
-
-<div class="col-sm-4 d-flex justify-content-center">
-<div class="card text-center" style="width: 12rem; height: 6rem; background-color: #7b73b4; border-radius: 30px; " >
-  <img class="card-img-top">
-  <div class="card-body justify-content-center">
-  <a href="edit.php" style="margin: auto;"><i class="fa fa-refresh  fa-2x" style="color:white; " ></i></a>
-    <h5 class="card-title" style="color: white;">Update</h5>
-  </div>
-</div>
-</div>
-
-<form method="POST" action="delete.php">
-<div class="col-sm-4 d-flex justify-content-center">
-<div class="card text-center" style="width: 12rem; height: 6rem; background-color: #e8dcff; border-radius: 30px; " >
-  <img class="card-img-top">
-  <div class="card-body">
-  <a href="class-rosters/index1.php" style="margin: auto;"><i class="fa fa-trash  fa-2x" style="color:#7b73b4; " ></i></a>
-    <h5 class="card-title">Delete</h5>
-  </div>
-</div>
-</div> -->
-
-</div>
 <div class="mt-5">
 <div class="container">
 <div class="row">
-<div class="row">
 <div class="col">
-
+<div class="row">
+</div>
 </div>
 </div>
 </div>
@@ -154,6 +150,12 @@
         font-family: 'Poppins';
     }
 
+    .bg {
+      background-image: url('../resources/background.png');
+      background-size: cover;
+      }
+
+
     button {
       background-color: white;
       border: none;
@@ -174,5 +176,66 @@
 .table-striped>tbody>tr:nth-child(odd)>th {
 	background-color: #e8dcff;
 }
+
+    .col-9-half{
+        width: 80%;
+    }
+
+
+    .wrapper {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+}
+
+
+    a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar {
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+    height: 100vh;
+}
+
+#sidebar .sidebar-header {
+    padding: 15px;
+    background: #6d7fcc;
+}
+
+#sidebar ul.components {
+    padding: 15px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
 
 </style>

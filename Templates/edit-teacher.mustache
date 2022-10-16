@@ -37,10 +37,17 @@
                   <label for="fullname" class="form-label">Address</label>
                   <input type="address" class="form-control" name="address" value="{{ teacher.address }}" required>
                 </div>
-                <div class="text-center">
-                    <button type="submit" name="SubmitButton" class="btn btn-primary">Update teacher</button>
-                </div>
+                <row>
+                <col>
+  <div class="text-center">
+  <button type="submit" name="SubmitButton" class="btn btn-primary">Update teacher</button>
   </form>
+  </col>
+  <col>
+<button formaction="list-teacher.php" class="btn btn-primary">Cancel</button>
+  </col>
+  </div>
+  </row>
 </div>
 </div>
 

@@ -28,10 +28,17 @@
       {{ name }}
       {{/ students }}</option></select>
   </div>
+  <row>
+  <col>
   <div class="text-center">
-  <button type="submit" name="SubmitButton" class="btn btn-primary">Add Roster</button>
+  <button type="submit" name="SubmitButton" class="btn btn-primary">Add roster</button>
   </form>
-</div>
+  </col>
+  <col>
+<button formaction="list-rosters1.php?class_code={{rosters.class_code}} class="btn btn-primary">Cancel</button>
+  </col>
+  </div>
+  </row>
 </div>
 </body>
 <style>

@@ -9,6 +9,6 @@ $code = $_POST['code'];
   $editRoster = new ClassRoster('');
   $editRoster->setConnection($connection);
   $editRoster->update($id, $code, $student_number);
-    header("Location: index1.php"); 
+    header("Location: list-rosters.php"); 
 
 ?>

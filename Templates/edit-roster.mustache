@@ -25,10 +25,18 @@
     <label for="student_number" class="form-label">Student Number</label>
      <input readonly type="text" class="form-control" id="fullname" name="student_number" value={{rosters.student_number}}>
   </div>
+  <row>
+  <col>
   <div class="text-center">
   <button type="submit" name="SubmitButton" class="btn btn-primary">Update roster</button>
   </form>
+  </col>
+  <col>
+<button formaction="list-rosters1.php?class_code={{rosters.class_code}}" class="btn btn-primary">Cancel</button>
+  </col>
   </div>
+  </row>
+
   </div>
   </body>
   <style>

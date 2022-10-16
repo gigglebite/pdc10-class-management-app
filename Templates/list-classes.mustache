@@ -1,13 +1,3 @@
-<?php
-include(dirname(dirname(__FILE__)) . '/Config/init.php');
-use App\Subject;
-
-$class = new Subject('');
-$class->setConnection($connection);
-$classes = $class->getAll();
-$teachers = $class->getTeachers();
-?>
-
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -90,36 +80,30 @@ $teachers = $class->getTeachers();
 
         <tbody>
 
-            <?php
-                foreach ($classes as $item) {
-            ?>
+            {{# classes }}
             <tr>
                 <td>
-                <input type="checkbox" name="checkbox[]" value= "<?= $item['id'];?>" style="margin-left:auto; margin-right:auto;">
+                <input type="checkbox" name="checkbox[]" value= {{ id }} style="margin-left:auto; margin-right:auto;">
                 </td>
                 <td>
-                    <?php echo $item['id']; ?>
+                    {{ id }}
                 </td>
 
                 <td>
-                    <?php echo $item['class_name']; ?>
+                    {{ class_name }}
                 </td>
                 <td>
-                    <?php echo $item['code']; ?>
+                    {{ code }}
                 </td>
                 <td>
-                    <?php echo $item['description']; ?>
+                    {{ description }}
                 </td>
                 <td>
-                    <?php echo $item['teacher_name']; ?>
+                    {{ teacher_name }}
                 </td>
                 </tr>
                 </tbody>
-                <?php
-
-}
-
-?>
+                {{/ classes }}
 </form>
 </table>
 </div>

@@ -70,7 +70,7 @@ $teachers = $teacher->getTotalTeacher();
   <div class="card-body">
     <h3 class="card-title">Courses</h3>
     <p class="number card-text"><?php echo $classes['total_classes'] ?> courses</p>
-    <a href="classes/index.php"><i class="fa fa-long-arrow-right fa-2x" style="color:#F46A61;" ></i></a>
+    <a href="classes/list-classes.php"><i class="fa fa-long-arrow-right fa-2x" style="color:#F46A61;" ></i></a>
   </div>
 </div>
 </div>
@@ -82,7 +82,7 @@ $teachers = $teacher->getTotalTeacher();
   <div class="card-body">
     <h3 class="card-title">Students</h3>
     <p class="number card-text"><?php echo $students['total_students'] ?> students</p>
-    <a href="students/index.php"><i class="fa fa-long-arrow-right fa-2x" style="color:#7B73B4;" ></i></a>
+    <a href="students/list-student.php"><i class="fa fa-long-arrow-right fa-2x" style="color:#7B73B4;" ></i></a>
   </div>
 </div>
 </div>
@@ -94,7 +94,7 @@ $teachers = $teacher->getTotalTeacher();
   <div class="card-body">
     <h3 class="card-title">Teachers</h3>
     <p class="number card-text"><?php echo $teachers['total_teachers'] ?> teachers</p>
-    <a href="teachers/index.php"><i class="fa fa-long-arrow-right fa-2x" style="color:#5C69F4;" ></i></a>
+    <a href="teachers/list-teacher.php"><i class="fa fa-long-arrow-right fa-2x" style="color:#5C69F4;" ></i></a>
   </div>
 </div>
 </div>

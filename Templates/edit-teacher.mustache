@@ -11,31 +11,31 @@
   <div class="card-body">
     <h2 class="card-title text-center">UPDATE TEACHER</h2>
   <form action="update-teacher.php" method="POST">
-                  <input type="hidden" name="id" value="{{ teacher.id }}"/>
+                  <input type="hidden" name="id" value="{{teacher.id}}"/>
 
                 <div class="mb-3">
                   <label for="fullname" class="form-label">Complete Name</label>
-                  <input type="fullname" class="form-control" name="name" value="{{ teacher.name }}" required>
+                  <input type="fullname" class="form-control" name="name" value="{{teacher.name}}" required>
                 </div>
 
                 <div class="mb-3">
                   <label for="fullname" class="form-label">Email</label>
-                  <input type="email" class="form-control" name="email" value="{{ teacher.email }}" required>
+                  <input type="email" class="form-control" name="email" value="{{teacher.email}}" required>
                 </div>
 
                 <div class="mb-3">
                   <label for="fullname" class="form-label">Phone Number</label>
-                  <input type="text" class="form-control" name="phone" value="{{ teacher.phone }}" required>
+                  <input type="text" class="form-control" name="phone" value="{{teacher.phone}}" required>
                 </div>
 
                 <div class="mb-3">
                   <label for="fullname" class="form-label">Employee Number</label>
-                  <input type="text" class="form-control" name="employee_number" value="{{ teacher.employee_number }}" required>
+                  <input type="text" class="form-control" name="employee_number" value="{{teacher.employee_number}}" required>
                 </div>
 
                 <div class="mb-3">
                   <label for="fullname" class="form-label">Address</label>
-                  <input type="address" class="form-control" name="address" value="{{ teacher.address }}" required>
+                  <input type="address" class="form-control" name="address" value="{{teacher.address}}" required>
                 </div>
                 <row>
                 <col>

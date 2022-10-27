@@ -120,7 +120,14 @@ class Teacher
 				':id' => $id
 			]);
 
-			$row = $statement->fetchAll();
+			$row = $statement->fetch();
+
+			$this->id = $row['id'];
+			$this->name = $row['name'];
+			$this->email = $row['email'];
+			$this->phone = $row['phone'];
+			$this->student_number = $row['employee_number'];
+			$this->address = $row['address'];
 
 			return $row;
 

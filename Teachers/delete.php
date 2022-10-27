@@ -16,7 +16,7 @@ if(isset($_POST['delete'])){
         error_log($e->getMessage());
     }
 }
-header("Location: index.php");
+header("Location: list-teacher.php");
 exit();
 
 ?>

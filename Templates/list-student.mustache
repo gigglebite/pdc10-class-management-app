@@ -46,7 +46,7 @@
 <div class="row mx-auto">
 <!-- Add courses  !-->
 <div class="col-sm-4 d-flex justify-content-center">
-  <button formaction="add.php" type="submit"><div class="card text-center" style="width: 12rem; height: 6rem; background-color: #e8dcff; border-radius: 30px;" >
+  <button onclick="goToURL()" type="button"><div class="card text-center" style="width: 12rem; height: 6rem; background-color: #e8dcff; border-radius: 30px;" >
   <div class="card-body">
   <i class="fa fa-user-plus fa-2x" style="color:#7b73b4; " ></i>
     <h5 class="card-title">Add student</h5>
@@ -57,7 +57,7 @@
 <!--  Start of the form !-->
 <!-- Update courses !-->
 <div class="col-sm-4 d-flex justify-content-center">
-<button type="submit" name="edit" value="edit">
+<button type="submit" id="edit" name="edit" value="edit">
 <div class="card text-center" style="width: 12rem; height: 6rem; background-color: #7b73b4; border-radius: 30px; " >
   <img class="card-img-top">
   <div class="card-body justify-content-center">
@@ -151,13 +151,19 @@
 </body>
 </html>
 <script>
-$("#onlyFrm").submit(function(){
+function goToURL() {
+      location.href = 'add.php';
+    }
+
+
+$("#edit").click(function(){
     var checked = $("#onlyFrm input:checked").length;
     if (checked  != 1){
         alert("Error encountered! Please check at least one or one box only.");
         return false;
     }
 });
+
 </script>
 <style>
     * {

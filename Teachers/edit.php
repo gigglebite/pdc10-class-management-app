@@ -5,10 +5,8 @@ use App\Teacher;
 
 $editTeacher = new Teacher('');
 $editTeacher->setConnection($connection);
-if(isset($_POST['edit'])){ 
   $selected_id = $_POST['checkbox'];
   $extract_id = implode('', $selected_id);
   $teacher = $editTeacher->getById($extract_id);
   echo $mustache->render('edit-teacher', compact('teacher'));
-}
 ?>
